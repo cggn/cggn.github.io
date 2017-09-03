@@ -1,7 +1,7 @@
 #!/bin/bash
 git add .
-git commit -m "blog"
-git push origin dev-blog:Hexo-Blog
+git commit -m 'add new blog'
+git push origin master:dev-blog
 
-hexo d -g
+hexo g -d
 
