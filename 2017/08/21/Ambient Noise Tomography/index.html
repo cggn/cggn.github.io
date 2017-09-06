@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/21/Ambient Noise Tomography/index.html">
 <meta property="og:site_name" content="Cggn">
 <meta property="og:description" content="背景噪声成像方法总结  (ANT)">
-<meta property="og:updated_time" content="2017-09-03T08:47:38.727Z">
+<meta property="og:updated_time" content="2017-09-06T12:17:39.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ambient Noise Tomography">
 <meta name="twitter:description" content="背景噪声成像方法总结  (ANT)">
@@ -349,19 +349,33 @@
       
         <h1 id="背景噪声成像方法总结-ANT"><a href="#背景噪声成像方法总结-ANT" class="headerlink" title="背景噪声成像方法总结  (ANT)"></a>背景噪声成像方法总结  (ANT)</h1><p><a id="more"></a>背景噪声成像最早开始于2003年，近十几年来被广泛的应用于区域和大陆尺度的速度成像。背景噪声即利用地震干涉法，对两个台站做互相关运算，<em>Weaver</em>, <em>Wapenaar</em>等从理论公式推导证明了：<strong>在均匀散射波场中，任意两点间的互相关函数求导与格林函数仅存在振幅上的差异</strong>。背景噪声成像利用了走时信息，即与相位有关，跟振幅无关，所以振幅的差异可以忽略。</p>
 <p><strong> 背景噪声成像处理流程</strong></p>
-<p>１．单台数据预处理</p>
+<p><strong>１．单台数据预处理</strong></p>
 <blockquote>
-<p>去均值、去趋势、去仪器响应<br>滤波<br>时间分割<br>时间域归一化</p>
-<pre><code>1. one-bit
+<p>去均值、去趋势、去仪器响应<br>滤波<br>时间分割</p>
+<blockquote>
+<pre><code>分割是指将长时间序列切割成短的时间序列，以增加叠加次数。在获取格林函数的过程中，通过适当增加叠加次数可以显著提高互相关信噪比。
+</code></pre></blockquote>
+<p>时间域归一化</p>
+<blockquote>
+<pre><code>时域归一就是将噪声振幅进行归一化，目的是消除仪器故障或人为等干扰，压制大的地震事件。常用方法有：        
+1. one-bit
 2. run-absolute-mean
-</code></pre><p>频率域归一化</p>
-</blockquote>
-<p>２．计算互相关函数及叠加</p>
-<p>３．提取频散曲线</p>
-<p>４．Ｓ波速度反演</p>
+</code></pre></blockquote>
+<p>频率域归一化</p>
 <blockquote>
-<p>传统的两步法反演<br>一步法直接反演</p>
+<pre><code>可以有效拓宽地震背景噪声的频谱，并降低某些单频固定信号的影响
+</code></pre></blockquote>
 </blockquote>
+<p><strong>２．计算互相关函数及叠加</strong></p>
+<p><strong>３．提取频散曲线</strong></p>
+<pre><code>τ-p 变换法、f-k 变换法、相移法、频率分解的倾斜叠加法和高分辨率线性拉东变换法
+</code></pre><p><strong>４．Ｓ波速度反演</strong></p>
+<blockquote>
+<p>传统的两步法反演</p>
+<p>一步法直接反演</p>
+</blockquote>
+<p><strong>参考：</strong><br><a href="http://icmt.illinois.edu/workshops/fluctuations2011/Talks/Weaver_Richard_ICMT_May_2011.pdf" target="_blank" rel="external">BL Weaver(2011): Seismic Noise Correlation</a> </p>
+<p><a href="http://ciei.colorado.edu/pubs/2007/2.pdf" target="_blank" rel="external">Bensen: 背景噪声处理流程</a> </p>
 
       
     </div>
