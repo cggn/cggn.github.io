@@ -3,5 +3,6 @@ git add .
 git commit -m 'add new blog'
 git push origin master:dev-blog
 
-hexo d -g
+hexo g
+hexo d
 
