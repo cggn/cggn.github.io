@@ -349,105 +349,14 @@
 
       
         
-          
-            <a id="more"></a>GMT是个强大的画图工具，想要画漂亮的地形图关键是地形数据要高精度。之前画的图一直不好看，后来发现是由于地形数据精度不够，细节显示不出来，而我画的区域很小，也就0.5x0.7度。后来用了精度为3弧秒的全球起伏地形数据，再加上光照，效果就好很多了。见下两幅图：
-
-
-<p><img src="/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/p.png" alt=""> </p>
-<p><img src="/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/station.png" alt=""> </p>
-<p> 代码如下：</p>
-<pre><code>#!/bin/bash
-xmin=117.1
-xmax=118.3
-ymin=31.3
-ymax=32.3
-R=$xmin/$xmax/$ymin/$ymax
-B=a1
-Inc=0.5m
-J=M13c
-PS=p.ps
-station=station_fd.txt
-
-grdcut Feidong.grd -Gfd.grd -R$R
-makecpt -Ctopo -T-100/400/20  &gt; colors.cpt
-psxy  -J$J -R$R  -T  -K &gt; $PS
-grdgradient fd.grd -Gfd.int -A0/270 -Nt 
-grdimage fd.grd -R$R -J$J -Ba0.2f0.1 -Ifd.int -Ccolors.cpt -O -K &gt;&gt; $PS
-
-psxy $station -J$J -R$R -St0.2 -Gblack  -O -K &gt;&gt; $PS
-
-psxy -J$J -R$R China_tectonic.dat -W1.8p,red,- -O -K &gt;&gt;$PS
-pscoast -R$R -J$J  -Dh -W0.8p -Slightblue -I2p -N1/2p -A50 -O -K &gt;&gt; $PS
-
-pstext -J$J -R$R -Gblack -S1 -O -K &gt;&gt; $PS &lt;&lt; EOF
-117.75 32 11 65 30 BL Tanlu Fault
-117.48 31.5 11 0 30 BL Chaohu Lake
-EOF
-
-Rg=110/130/25/40
-#Jg=M7c
-#Jg=X2.7i/1.5i
-Jg=m0.22
-grdcut topo15.grd -Gchina.grd -R$Rg
-
-psbasemap -R$Rg -J$Jg -B0 -Gwhite  -O  -K --BASEMAP_TYPE=plain -X0.01 -Y8.75 &gt;&gt; $PS
-pscoast -R$Rg -J$Jg -Df -N1 -W -A5000  -O -K&gt;&gt; $PS
-grdimage china.grd -Cglobe.cpt -R$Rg -J$Jg -O -K &gt;&gt; $PS
-
-psxy -R$Rg -J$Jg -W0.9p,red -O -L &gt;&gt; $PS &lt;&lt; EOF
-$xmin $ymin
-$xmin $ymax
-$xmax $ymax
-$xmax $ymin
-EOF
-rm colors.cpt
-ps2raster -A -Tg -P $PS</code></pre><p>主要是这两行命令，求梯度，加光照，这样画出的地形图就漂亮很多。<br>１．计算梯度文件</p>
-<pre><code>grdgradient fd.grd -Gfd.int -A0/270 -Nt </code></pre><p>２．画图</p>
-<pre><code>grdimage fd.grd -R$R -J$J -Ba0.2f0.1 -Ifd.int -Ccolors.cpt -O -K &gt;&gt; $PS</code></pre><p>psxy画各种符号，这里先列举画圆</p>
-<p><img src="/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/fk_phase_velocity.png" alt=""> </p>
-<p>代码如下：</p>
-<pre><code>#!/bin/bash
-xmin=117.1
-xmax=118.3
-ymin=31.3
-ymax=32.3
-R=$xmin/$xmax/$ymin/$ymax
-B=a0.2/0.1WeSn
-Inc=0.5m
-J=M13c
-PS=p.ps
-station=result_fk.dat
-
-awk &apos;{print $2,$3,$4}&apos; $station &gt;loc
-awk &apos;{print $4}&apos; $station &gt;color
-
-minmax -C color &gt;cnx
-colormin=`awk &apos;{print $1-0.1}&apos; cnx`
-colormax=`awk &apos;{print $2+0.1}&apos; cnx`
-
-makecpt -T$colormin/$colormax/0.0001 -D -Cjet -I  &gt; colors.cpt
-
-psbasemap -J$J -R$R -B$B -P -K &gt; $PS
-pscoast -R$R -J$J -Dh -W0.8p -Slightblue -I2p -N1/2p -P -A50 -O -K &gt;&gt; $PS
-
-awk &apos;{print $1,$2,$3,0.35}&apos; loc| psxy -J$J -R$R -O -K -Ccolors.cpt -N -Sc -W0.3p &gt;&gt;$PS
-
-psxy -J$J -R$R China_tectonic.dat -W1.5p,black,- -O -K &gt;&gt;$PS
-
-pstext -J$J -R$R -Gblack -S1 -O -K &gt;&gt; $PS &lt;&lt; EOF
-117.75 32 11 65 30 BL Tanlu Fault
-117.48 31.5 11 0 30 BL Chaohu Lake
-EOF
-
-psscale -D21.2c/6c/12c/0.5c -Ccolors.cpt -B0.2/:&quot;V(km/s)&quot;: -E -O  -X-7&gt;&gt;$PS
-
-ps2raster -A -Tg  $PS</code></pre><p>需要准备四列数据，经纬度、速度大小、圆的半径，如果不给圆的半径就要写成-Sc0.35，如果是椭圆就需要逆时针角度、长轴半径、短轴半径，-Se.</p>
-<pre><code>awk &apos;{print $1,$2,$3,0.35}&apos; loc| psxy -J$J -R$R -O -K -Ccolors.cpt -N -Sc -W0.3p &gt;&gt;$PS</code></pre><p><strong>参考：</strong></p>
-<p><a href="http://seisman.info/global-relief-models.html" target="_blank" rel="noopener">全球地形起伏数据总结</a> </p>
-<p><a href="http://blog.sina.com.cn/s/blog_7a37c79f0101od0d.html" target="_blank" rel="noopener">使用GMT的psxy命令画各种符号</a> </p>
-<p><a href="http://blog.sina.com.cn/s/blog_7b04e0c40101fgtd.html" target="_blank" rel="noopener">GMT画图整理入门</a> </p>
-
-          
+          <p>GMT是个强大的画图工具，想要画漂亮的地形图关键是地形数据要高精度。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
