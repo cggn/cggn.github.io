@@ -4,18 +4,18 @@
 
 
 <html class="theme-next pisces" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -33,7 +33,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -67,37 +67,41 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
 
 
 
+<meta name="description" content="GMT是个强大的画图工具，想要画漂亮的地形图关键是地形数据要高精度。之前画的图一直不好看，后来发现是由于地形数据精度不够，细节显示不出来，而我画的区域很小，也就0.5x0.7度。后来用了精度为3弧秒的全球起伏地形数据，再加上光照，效果就好很多了。见下两幅图：        代码如下： #!/bin/bash xmin=117.1 xmax=118.3 ymin=31.3 ymax=32.3 R=$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用GMT画漂亮的地形图及psxy画各种符号">
 <meta property="og:url" content="http://yoursite.com/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/index.html">
 <meta property="og:site_name" content="Cggn">
+<meta property="og:description" content="GMT是个强大的画图工具，想要画漂亮的地形图关键是地形数据要高精度。之前画的图一直不好看，后来发现是由于地形数据精度不够，细节显示不出来，而我画的区域很小，也就0.5x0.7度。后来用了精度为3弧秒的全球起伏地形数据，再加上光照，效果就好很多了。见下两幅图：        代码如下： #!/bin/bash xmin=117.1 xmax=118.3 ymin=31.3 ymax=32.3 R=$">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/p.png">
 <meta property="og:image" content="http://yoursite.com/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/station.png">
 <meta property="og:image" content="http://yoursite.com/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/fk_phase_velocity.png">
-<meta property="og:updated_time" content="2017-09-06T11:51:45.176Z">
+<meta property="og:updated_time" content="2017-09-06T11:51:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用GMT画漂亮的地形图及psxy画各种符号">
+<meta name="twitter:description" content="GMT是个强大的画图工具，想要画漂亮的地形图关键是地形数据要高精度。之前画的图一直不好看，后来发现是由于地形数据精度不够，细节显示不出来，而我画的区域很小，也就0.5x0.7度。后来用了精度为3弧秒的全球起伏地形数据，再加上光照，效果就好很多了。见下两幅图：        代码如下： #!/bin/bash xmin=117.1 xmax=118.3 ymin=31.3 ymax=32.3 R=$">
 <meta name="twitter:image" content="http://yoursite.com/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/p.png">
 
 
@@ -126,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/">
 
 
 
@@ -135,7 +139,7 @@
   <title>用GMT画漂亮的地形图及psxy画各种符号 | Cggn</title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -161,13 +165,13 @@
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Cggn</span>
         <span class="logo-line-after"><i></i></span>
@@ -197,7 +201,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -207,7 +211,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -217,7 +221,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -227,7 +231,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -261,16 +265,16 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="cggn">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Cggn">
     </span>
 
@@ -291,7 +295,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T20:26:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T08:26:56-04:00">
                 2017-09-03
               </time>
             
@@ -302,7 +306,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -313,7 +317,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/GMT/" itemprop="url" rel="index">
                     <span itemprop="name">GMT</span>
                   </a>
@@ -348,7 +352,9 @@
       
 
       
-        <p><a id="more"></a>GMT是个强大的画图工具，想要画漂亮的地形图关键是地形数据要高精度。之前画的图一直不好看，后来发现是由于地形数据精度不够，细节显示不出来，而我画的区域很小，也就0.5x0.7度。后来用了精度为3弧秒的全球起伏地形数据，再加上光照，效果就好很多了。见下两幅图：</p>
+        <a id="more"></a>GMT是个强大的画图工具，想要画漂亮的地形图关键是地形数据要高精度。之前画的图一直不好看，后来发现是由于地形数据精度不够，细节显示不出来，而我画的区域很小，也就0.5x0.7度。后来用了精度为3弧秒的全球起伏地形数据，再加上光照，效果就好很多了。见下两幅图：
+
+
 <p><img src="/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/p.png" alt=""> </p>
 <p><img src="/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/station.png" alt=""> </p>
 <p> 代码如下：</p>
@@ -397,12 +403,9 @@ $xmax $ymax
 $xmax $ymin
 EOF
 rm colors.cpt
-ps2raster -A -Tg -P $PS
-</code></pre><p>主要是这两行命令，求梯度，加光照，这样画出的地形图就漂亮很多。<br>１．计算梯度文件</p>
-<pre><code>grdgradient fd.grd -Gfd.int -A0/270 -Nt 
-</code></pre><p>２．画图</p>
-<pre><code>grdimage fd.grd -R$R -J$J -Ba0.2f0.1 -Ifd.int -Ccolors.cpt -O -K &gt;&gt; $PS
-</code></pre><p>psxy画各种符号，这里先列举画圆</p>
+ps2raster -A -Tg -P $PS</code></pre><p>主要是这两行命令，求梯度，加光照，这样画出的地形图就漂亮很多。<br>１．计算梯度文件</p>
+<pre><code>grdgradient fd.grd -Gfd.int -A0/270 -Nt </code></pre><p>２．画图</p>
+<pre><code>grdimage fd.grd -R$R -J$J -Ba0.2f0.1 -Ifd.int -Ccolors.cpt -O -K &gt;&gt; $PS</code></pre><p>psxy画各种符号，这里先列举画圆</p>
 <p><img src="/2017/09/03/用GMT画漂亮的地形图及psxy画各种符号/fk_phase_velocity.png" alt=""> </p>
 <p>代码如下：</p>
 <pre><code>#!/bin/bash
@@ -440,13 +443,11 @@ EOF
 
 psscale -D21.2c/6c/12c/0.5c -Ccolors.cpt -B0.2/:&quot;V(km/s)&quot;: -E -O  -X-7&gt;&gt;$PS
 
-ps2raster -A -Tg  $PS
-</code></pre><p>需要准备四列数据，经纬度、速度大小、圆的半径，如果不给圆的半径就要写成-Sc0.35，如果是椭圆就需要逆时针角度、长轴半径、短轴半径，-Se.</p>
-<pre><code>awk &apos;{print $1,$2,$3,0.35}&apos; loc| psxy -J$J -R$R -O -K -Ccolors.cpt -N -Sc -W0.3p &gt;&gt;$PS
-</code></pre><p><strong>参考：</strong></p>
-<p><a href="http://seisman.info/global-relief-models.html" target="_blank" rel="external">全球地形起伏数据总结</a> </p>
-<p><a href="http://blog.sina.com.cn/s/blog_7a37c79f0101od0d.html" target="_blank" rel="external">使用GMT的psxy命令画各种符号</a> </p>
-<p><a href="http://blog.sina.com.cn/s/blog_7b04e0c40101fgtd.html" target="_blank" rel="external">GMT画图整理入门</a> </p>
+ps2raster -A -Tg  $PS</code></pre><p>需要准备四列数据，经纬度、速度大小、圆的半径，如果不给圆的半径就要写成-Sc0.35，如果是椭圆就需要逆时针角度、长轴半径、短轴半径，-Se.</p>
+<pre><code>awk &apos;{print $1,$2,$3,0.35}&apos; loc| psxy -J$J -R$R -O -K -Ccolors.cpt -N -Sc -W0.3p &gt;&gt;$PS</code></pre><p><strong>参考：</strong></p>
+<p><a href="http://seisman.info/global-relief-models.html" target="_blank" rel="noopener">全球地形起伏数据总结</a> </p>
+<p><a href="http://blog.sina.com.cn/s/blog_7a37c79f0101od0d.html" target="_blank" rel="noopener">使用GMT的psxy命令画各种符号</a> </p>
+<p><a href="http://blog.sina.com.cn/s/blog_7b04e0c40101fgtd.html" target="_blank" rel="noopener">GMT画图整理入门</a> </p>
 
       
     </div>
@@ -540,10 +541,8 @@ ps2raster -A -Tg  $PS
       
 
       <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="cggn" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="cggn">
           <p class="site-author-name" itemprop="name">cggn</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
@@ -618,10 +617,10 @@ ps2raster -A -Tg  $PS
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright" >
+<div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
